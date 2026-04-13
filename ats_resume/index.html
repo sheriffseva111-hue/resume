@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Sheriff - Professional Full Stack Developer Resume</title>
+    <!-- Google Font: Inter (Professional MNC Standard) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a202c;
+            --secondary: #4a5568;
+            --accent: #2b6cb0;
+            --bg: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: var(--text);
+            line-height: 1.6;
+            padding: 40px 0;
+        }
+
+        .resume-page {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg);
+            padding: 50px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+            position: relative;
+        }
+
+        /* Accent bar for MNC feel */
+        .resume-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent), #63b3ed);
+        }
+
+        /* Header Layout */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            padding: 3px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .name-title h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+        }
+
+        .name-title .title {
+            font-size: 18px;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-grid {
+            text-align: right;
+            font-size: 13px;
+            color: var(--secondary);
+        }
+
+        .contact-item {
+            margin-bottom: 3px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        section {
+            margin-bottom: 30px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            letter-spacing: 1.5px;
+            white-space: nowrap;
+            margin-right: 15px;
+        }
+
+        .section-header .line {
+            height: 1px;
+            background: var(--border);
+            width: 100%;
+        }
+
+        /* Summary */
+        .summary-text {
+            font-size: 14.5px;
+            color: var(--secondary);
+            text-align: justify;
+        }
+
+        /* Skills Grid */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .skill-category {
+            margin-bottom: 15px;
+        }
+
+        .skill-category strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        /* Projects */
+        .project-item {
+            margin-bottom: 20px;
+        }
+
+        .project-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+
+        .project-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .project-tech {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            background: #ebf4ff;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .project-bullets {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-bullets li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 14px;
+            color: var(--secondary);
+            margin-bottom: 4px;
+        }
+
+        .project-bullets li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Education & Additional */
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14.5px;
+            margin-bottom: 5px;
+        }
+
+        .info-item .bold {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Print Settings */
+        @media print {
+            body { background: white; padding: 0; }
+            .resume-page { box-shadow: none; padding: 30px; max-width: 100%; border-radius: 0; }
+            .resume-page::before { display: none; }
+            .contact-item a { color: black !important; }
+            .skill-tag { border: 1px solid #ddd; }
+            .project-tech { border: 1px solid #bee3f8; }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-page">
+        <header>
+            <div class="header-left">
+                <!-- Circular Profile Photo -->
+                <img src="C:/Users/Admin/Downloads/Gemini_Generated_Image_yt7g4gyt7g4gyt7g.png" alt="Mohamed Sheriff" class="profile-img" onerror="this.src='https://via.placeholder.com/150?text=MS'">
+                <div class="name-title">
+                    <h1>MOHAMED SHERIFF</h1>
+                    <div class="title">Full Stack Developer</div>
+                </div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">📍 Tamil Nadu, India</div>
+                <div class="contact-item">📞 +91 7094728072</div>
+                <div class="contact-item">📧 <a href="mailto:sheriffseva111@gmail.com">sheriffseva111@gmail.com</a></div>
+                <div class="contact-item">🔗 <a href="https://github.com/sheriffseva111-hue">github.com/sheriffseva111-hue</a></div>
+                <div class="contact-item">🔗 <a href="https://linkedin.com/in/mohamedsheriff">linkedin.com/in/mohamedsheriff</a></div>
+            </div>
+        </header>
+
+        <!-- Summary -->
+        <section>
+            <div class="section-header">
+                <h2>Professional Summary</h2>
+                <div class="line"></div>
+            </div>
+            <p class="summary-text">
+                Dynamic and results-driven Aspiring Full Stack Developer with a solid foundation in HTML5, CSS3, JavaScript (ES6+), React.JS, and Python. Proficient in architecting responsive, user-centric web applications with a focus on optimized state management and seamless API integrations. Proven ability to translate complex requirements into scalable software solutions. Eager to contribute technical expertise to a high-growth MNC environment.
+            </p>
+        </section>
+
+        <!-- Skills -->
+        <section>
+            <div class="section-header">
+                <h2>Technical Skills</h2>
+                <div class="line"></div>
+            </div>
+            <div class="skill-category">
+                <strong>Frontend Development</strong>
+                <div class="skills-container">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript (ES6+)</span>
+                    <span class="skill-tag">React.JS</span>
+                    <span class="skill-tag">Tailwind CSS</span>
+                    <span class="skill-tag">Responsive Design</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <strong>Backend & Tools</strong>
+                <div class="skills-container">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Git & GitHub</span>
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">RESTful APIs</span>
+                    <span class="skill-tag">Fetch API</span>
+                    <span class="skill-tag">State Management</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section>
+            <div class="section-header">
+                <h2>Key Projects</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-main">
+                    <span class="project-name">Calculator Web Application</span>
+                    <span class="project-tech">React.JS • JavaScript</span>
+                </div>
+                <ul class="project-bullets">
+                    <li>Engineered a high-performance responsive calculator utilizing modular React components.</li>
+                    <li>Developed complex arithmetic logic handling multi-step operations with 100% accuracy.</li>
+                    <li>Optimized user interaction through real-time state updates and event-driven architecture.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-main">
+                    <span class="project-name">Dynamic Form Handling System</span>
+                    <span class="project-tech">React.JS • Hooks</span>
+                </div>
+                <ul class="project-bullets">
+                    <li>Built a robust form engine with live schema validation and conditional error messaging.</li>
+                    <li>Implemented advanced state management using React Hooks (useState) for persistent data integrity.</li>
+                    <li>Designed an intuitive UI that reduced submission errors by providing instant user feedback.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-main">
+                    <span class="project-name">Navigation-Based Application</span>
+                    <span class="project-tech">React.JS • Tailwind CSS</span>
+                </div>
+                <ul class="project-bullets">
+                    <li>Architected a mobile-first navigation framework with conditional rendering for dynamic sections.</li>
+                    <li>Leveraged Tailwind CSS utility classes to achieve a modern, minimalist design aesthetic.</li>
+                    <li>Enhanced application usability by implementing smooth transitions and optimized component loading.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+            <div class="section-header">
+                <h2>Education</h2>
+                <div class="line"></div>
+            </div>
+            <div class="info-item">
+                <span class="bold">Higher Secondary Schooling (12th Standard)</span>
+                <span>2017</span>
+            </div>
+            <div class="info-item" style="color: var(--secondary); font-size: 13px;">
+                <span>Tamil Nadu State Board</span>
+            </div>
+        </section>
+
+        <!-- Additional Info -->
+        <section>
+            <div class="section-header">
+                <h2>Additional Expertise</h2>
+                <div class="line"></div>
+            </div>
+            <ul class="project-bullets">
+                <li><strong>API Integration:</strong> Hands-on experience fetching and processing JSON data for dynamic views.</li>
+                <li><strong>Agile Workflow:</strong> Proficient in Git-based version control and collaborative development.</li>
+                <li><strong>Problem Solving:</strong> Strong analytical skills with a focus on writing clean, reusable code.</li>
+                <li><strong>Adaptability:</strong> Rapid learner capable of mastering new frameworks and enterprise tools quickly.</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
